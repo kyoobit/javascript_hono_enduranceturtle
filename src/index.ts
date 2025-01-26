@@ -1,7 +1,7 @@
-import { Hono } from 'hono'
-import { html, raw } from 'hono/html'
+import { Hono } from 'hono';
+import { html, raw } from 'hono/html';
 
-const app = new Hono()
+const app = new Hono();
 
 app.get('/:dir{(css|img)}/:key', async (c) => {
     const key = `${c.req.param("dir")}/${c.req.param("key")}`;
@@ -54,7 +54,7 @@ app.get('/', (c) => {
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/css/main.css" 
-        integrity="sha-384-iaea82lf0S3vkHlJ5nA90SW2xwrE0d8SnrwpfsbGdSB4pEwhRqbM4dIk6lv0ikL5" />
+        integrity="sha384-iaea82lf0S3vkHlJ5nA90SW2xwrE0d8SnrwpfsbGdSB4pEwhRqbM4dIk6lv0ikL5" />
 </head>
 <body>
     <section id="container">
@@ -103,7 +103,7 @@ app.get('/', (c) => {
         "object-src 'none'", // block all <object> and <embed> resources
         "base-uri 'none'", // block all uses of the <base> element to set a base URI
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/require-trusted-types-for
-        //"require-trusted-types-for 'script'",
+        "require-trusted-types-for 'script'",
     ].join('; ');
 
     // MIME types HTTP response header
